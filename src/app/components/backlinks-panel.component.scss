@@ -1,0 +1,45 @@
+.panel {
+  background: var(--card);
+  padding: 1rem;
+
+  h2 {
+    margin: 0 0 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  li {
+    border: 1px solid var(--border);
+    background: var(--muted);
+    padding: 0.5rem;
+
+    button {
+      border: 0;
+      background: none;
+      color: var(--accent);
+      text-decoration: underline;
+      padding: 0;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0.3rem 0 0;
+      font-size: 0.74rem;
+      color: var(--muted-foreground);
+    }
+  }
+
+  .muted {
+    color: var(--muted-foreground);
+    font-size: 0.8rem;
+  }
+}

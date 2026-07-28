@@ -1,1 +1,188 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Pirata+One&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --background: #fffdf8;
+  --foreground: #1f1a14;
+  --muted: #eee7d8;
+  --muted-foreground: #6f6657;
+  --card: #fffdf8;
+  --graph: #f1ebde;
+  --border: #ddd3c3;
+  --accent: #a66b2e;
+  --default-accent: #a66b2e;
+  --computer-science-accent: #b54b27;
+  --farming-accent: #2f8552;
+  --health-accent: #0f766e;
+  --money-accent: #8a6d1a;
+  --philosophy-accent: #7a4f26;
+  --cybersecurity-accent: #4452a4;
+  --graph-grid-line: rgb(107 96 76 / 0.12);
+  --graph-star-color: rgb(107 96 76 / 0.2);
+  --font-lato: 'Lato', sans-serif;
+  --font-pirata: 'Pirata One', serif;
+  --font-serif: 'Source Serif 4', serif;
+  --font-mono: 'Space Mono', monospace;
+  --text-column-max-width: 800px;
+  --body-2: 18px;
+  --leading-155: 1.55;
+  --weight-text-regular: 400;
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 8%, rgb(192 166 126 / 0.16), transparent 26%),
+    radial-gradient(circle at 84% 92%, rgb(153 120 72 / 0.13), transparent 30%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-lato);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.prose {
+  max-width: none;
+  font-family: var(--font-serif);
+  font-feature-settings: 'pnum' on, 'lnum' on, 'liga' on;
+  font-size: var(--body-2);
+  font-weight: var(--weight-text-regular);
+  line-height: var(--leading-155);
+  letter-spacing: 0;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-mono);
+    margin-top: 1.1rem;
+    margin-bottom: 0.45rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: clamp(1.7rem, 4.8vw, 3rem);
+    letter-spacing: 0.01em;
+  }
+
+  h2 {
+    font-size: clamp(1.3rem, 3.2vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+  }
+
+  p,
+  li,
+  blockquote {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: var(--font-serif);
+    line-height: var(--leading-155);
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  p + p {
+    margin-top: 0.18rem;
+  }
+
+  a[href^='http://'],
+  a[href^='https://'],
+  a[href^='mailto:'] {
+    color: #245c9c;
+  }
+
+  a:hover {
+    color: #fffdf8;
+    background: var(--accent);
+  }
+
+  code {
+    background: #f0e8d8;
+    border-radius: 0.3rem;
+    padding: 0.04rem 0.28rem;
+    font-size: 0.9em;
+    color: #4e4233;
+    font-family: var(--font-mono);
+  }
+
+  .dg-quote {
+    margin: 0.8rem 1.6rem;
+    padding: 0.55rem 0.85rem;
+    border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    color: #615748;
+    background: #f2ecdf;
+    font-style: italic;
+  }
+
+  .dg-code-block {
+    margin: 0.9rem 0;
+    border: 1px solid var(--border);
+    background: #f4eee1;
+    padding: 0.95rem;
+    overflow-x: auto;
+
+    code {
+      background: transparent;
+      padding: 0;
+      color: var(--foreground);
+      white-space: pre;
+    }
+  }
+
+  .dg-callout {
+    margin: 0.9rem 0;
+    border: 1px solid var(--border);
+    background: #f4edde;
+    padding: 0.8rem;
+
+    .dg-callout-title {
+      margin: 0 0 0.25rem;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .dg-callout-content p {
+      margin: 0;
+    }
+  }
+
+  .dg-divider {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 1.2rem 0;
+  }
+
+  .dg-paragraph-break {
+    height: 1rem;
+  }
+}
