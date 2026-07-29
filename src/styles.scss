@@ -2,6 +2,8 @@
 
 :root {
   --background: #E2E6E7;
+  --background-gradient: #1d172a;
+  --background-dot: #989ea0;
   --foreground: #434B4E;
   --muted: #dcdfe0;
   --muted-foreground: #434B4E;
@@ -24,9 +26,13 @@
   --body-2: 18px;
   --leading-155: 1.55;
   --weight-text-regular: 400;
+  --background-dot-spacing: 133px;
+  --background-dot-size: 1px;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   border-color: var(--border);
 }
@@ -38,12 +44,27 @@ body {
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(var(--background-gradient), var(--background));
   color: var(--foreground);
+  box-sizing: border-box;
   font-family: var(--font-lato);
-  font-size: 19px;
-  font-weight: 400;
-  line-height: 1.6;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.7;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 1rem;
+
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-image: radial-gradient(var(--background-dot) var(--background-dot-size), var(--background) var(--background-dot-size));
+  background-size: var(--background-dot-spacing) var(--background-dot-spacing);
+  background-attachment: fixed;
+
+    @media (min-width: 820px) {
+      font-size: 1.1rem;
+    }
 }
 
 button,
