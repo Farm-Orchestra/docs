@@ -1,3 +1,5 @@
+@use '../styles/utils/colors' as c;
+
 .tag-page {
   min-height: 100vh;
   max-width: 70rem;
@@ -15,24 +17,24 @@
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--muted-foreground);
+      color: c.$color-muted-foreground;
       font-size: 0.66rem;
     }
 
     h1 {
       margin: 0.2rem 0 0;
-      color: var(--foreground);
+      color: c.$color-foreground;
       font-size: 1.7rem;
     }
 
     small {
-      color: var(--muted-foreground);
+      color: c.$color-muted-foreground;
     }
 
     button {
-      border: 1px solid var(--border);
+      border: 1px solid c.$color-border;
       background: var(--muted);
-      color: var(--foreground);
+      color: c.$color-foreground;
       padding: 0.4rem 0.6rem;
       font-size: 0.78rem;
       cursor: pointer;
@@ -50,39 +52,39 @@
   li button {
     width: 100%;
     text-align: left;
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--foreground);
+    border: 1px solid c.$color-border;
+    background: c.$color-card;
+    color: c.$color-foreground;
     padding: 0.85rem;
     cursor: pointer;
 
     &:hover {
-      border-color: var(--accent);
+      border-color: c.$color-accent;
       background: var(--muted);
     }
 
     h2 {
       margin: 0;
-      color: var(--accent);
+      color: c.$color-accent;
       font-size: 1rem;
     }
 
     p {
       margin: 0.2rem 0;
       font-size: 0.7rem;
-      color: var(--muted-foreground);
+      color: c.$color-muted-foreground;
     }
 
     small {
-      color: var(--foreground);
+      color: c.$color-foreground;
       font-size: 0.8rem;
     }
   }
 
   .empty {
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--muted-foreground);
+    border: 1px solid c.$color-border;
+    background: c.$color-card;
+    color: c.$color-muted-foreground;
     padding: 0.8rem;
   }
 }

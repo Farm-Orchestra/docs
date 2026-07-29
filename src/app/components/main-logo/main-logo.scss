@@ -1,3 +1,4 @@
+@use '../../styles/utils/colors' as c;
 
 @mixin logo-default {
     font-family: var(--font-mono);
@@ -10,13 +11,13 @@
 .logo {
   @include logo-default;
 
-  color: var(--muted-foreground);
+  color: c.$color-muted-foreground;
   margin-left: 1.2em;
   margin-right: 1.5em;
   cursor: pointer;
 
   &:hover {
-    color: var(--foreground);
+    color: c.$color-foreground;
     background: none;
   }
 }
@@ -25,11 +26,11 @@
     @include logo-default;
 
     cursor:auto;
-    color: var(--background);
+    color: c.$color-background;
     margin-right: 2em;
 
     &:hover {
-        color: var(--background);
+        color: c.$color-background;
         background: none;
   }
 }

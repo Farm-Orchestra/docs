@@ -1,24 +1,9 @@
+@use './app/styles/utils/colors' as c;
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Pirata+One&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-  --background: #E2E6E7;
-  --background-gradient: #1d172a;
-  --background-dot: #989ea0;
-  --foreground: #434B4E;
   --muted: #dcdfe0;
-  --muted-foreground: #6e7476;
-  --card: #d3d6d6;
-  --graph: #efefef;
-  --quote: #4d4d4d;
-  --quote-background: #dcdddd;
-  --callout: #585f62;
-  --callout-background: #d9dedf;
-  --tag-background: #ccd1d2;
-  --obsidian-link: #b462ff;
-  --link: #3199f3;
-  --border: #CDD5D6;
-  --accent: #31F382;
-  --default-accent: #31F382;
+  
   --font-lato: 'Lato', sans-serif;
   --font-pirata: 'Pirata One', serif;
   --font-serif: 'Source Serif 4', serif;
@@ -36,7 +21,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  border-color: var(--border);
+  border-color: c.$color-border;
 }
 
 html,
@@ -46,8 +31,8 @@ body {
 }
 
 body {
-  background: radial-gradient(var(--background-gradient), var(--background));
-  color: var(--foreground);
+  background: radial-gradient(c.$color-background-gradient, c.$color-background);
+  color: c.$color-foreground;
   box-sizing: border-box;
   font-family: var(--font-lato);
   font-weight: 300;
@@ -60,7 +45,7 @@ body {
   inset: 0;
   height: 100%;
   width: 100%;
-  background-image: radial-gradient(var(--background-dot) var(--background-dot-size), var(--background) var(--background-dot-size));
+  background-image: radial-gradient(c.$color-background-dot var(--background-dot-size), c.$color-background var(--background-dot-size));
   background-size: var(--background-dot-spacing) var(--background-dot-spacing);
   background-attachment: fixed;
 
@@ -167,26 +152,26 @@ li {
   }
 
   a {
-   color: var(--obsidian-link);
+   color: c.$color-obsidian-link;
    font-weight: 400;
   }
 
   a[href^='http://'],
   a[href^='https://'],
   a[href^='mailto:'] {
-    color: var(--link);
+    color: c.$color-link;
   }
 
   a[href^='http://']:hover,
   a[href^='https://']:hover,
   a[href^='mailto:']:hover {
-    color: var(--background);
-    background: var(--link);
+    color: c.$color-background;
+    background: c.$color-link;
   }
 
   a:hover {
-    color: var(--background);
-    background: var(--obsidian-link);
+    color: c.$color-background;
+    background: c.$color-obsidian-link;
   }
 
   code {
@@ -201,8 +186,8 @@ li {
   .dg-quote {
     margin: 0.8rem 1.6rem;
     padding: 0.55rem 2.22rem;
-    border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
-    color: var(--quote);
+    border-left: 2px solid color-mix(in srgb, c.$color-accent 40%, transparent);
+    color: c.$color-quote;
     font-style: italic;
     font-family: var(--font-lato);
 
@@ -214,7 +199,7 @@ li {
 
   .dg-code-block {
     margin: 0.9rem 0;
-    border: 1px solid var(--border);
+    border: 1px solid c.$color-border;
     background: #f4eee1;
     padding: 0.95rem;
     overflow-x: auto;
@@ -222,20 +207,20 @@ li {
     code {
       background: transparent;
       padding: 0;
-      color: var(--foreground);
+      color: c.$color-foreground;
       white-space: pre;
     }
   }
 
   .dg-callout {
     margin: 0.9rem 0;
-    border: 1px solid var(--border);
-    background: var(--callout-background);
+    border: 1px solid c.$color-border;
+    background: c.$color-callout-background;
     padding: 1.5rem;
 
     .dg-callout-title {
       margin: 0 0 0.35rem 0;
-      color: var(--callout);
+      color: c.$color-callout;
       font-family: var(--font-mono);
       font-weight: 500;
       font-size: 0.78rem;
@@ -254,7 +239,7 @@ li {
 
   .dg-divider {
     border: 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid c.$color-border;
     margin: 1.2rem 0;
   }
 
@@ -278,9 +263,9 @@ li {
   }
 
   .chip {
-    border: 1px solid var(--border);
+    border: 1px solid c.$color-border;
     background: var(--muted);
-    color: var(--muted-foreground);
+    color: c.$color-muted-foreground;
     padding: 0.3rem 0.45rem;
     font-size: 0.67rem;
   }
@@ -293,18 +278,18 @@ li {
   .tag {
     @extend .reset-button;
     cursor: pointer;
-    border: 0px solid var(--border);
+    border: 0px solid c.$color-border;
     
     font-family: var(--font-mono);
-    color: var(--muted-foreground);
+    color: c.$color-muted-foreground;
     font-size: 0.8rem;
-    background-color: var(--tag-background);
+    background-color: c.$color-tag-background;
     padding: 0.3em 0.7em;
     margin-right: 0.4em;
 
     &:hover {
-        color: var(--muted-foreground);
-        background-color: var(--accent);
+        color: c.$color-muted-foreground;
+        background-color: c.$color-accent;
     }
   }
 

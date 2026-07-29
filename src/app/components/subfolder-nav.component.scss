@@ -1,21 +1,23 @@
+@use '../styles/utils/colors' as c;
+
 .subfolder-nav {
   display: flex;
   justify-content: center;
   gap: 0.4rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid c.$color-border;
   padding: 0.6rem;
 
   button {
     border: 0;
     background: transparent;
-    color: var(--muted-foreground);
+    color: c.$color-muted-foreground;
     font-size: 0.75rem;
     letter-spacing: 0.07em;
     cursor: pointer;
 
     &.active,
     &:hover {
-      color: var(--accent);
+      color: c.$color-accent;
     }
   }
 }
