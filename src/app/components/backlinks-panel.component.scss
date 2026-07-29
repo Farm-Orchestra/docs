@@ -3,6 +3,7 @@
 .panel {
   background: c.$color-card;
   padding: 1rem;
+  margin-top: 2em;
 
   h2 {
     margin: 0 0 0.6rem;
@@ -21,22 +22,32 @@
     border: 1px solid c.$color-border;
     background: var(--muted);
     padding: 0.5rem;
+    list-style: none;
 
     button {
       border: 0;
       background: none;
-      color: c.$color-accent;
+      color: c.$color-foreground;
       text-decoration: underline;
       padding: 0;
       cursor: pointer;
-      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      font-size: 1rem;
       font-weight: 700;
+
+      &:hover {
+        color: c.$color-muted-foreground;
+      }
     }
 
     p {
       margin: 0.3rem 0 0;
-      font-size: 0.74rem;
+      font-size: 0.9rem;
       color: c.$color-muted-foreground;
+
+      &:hover {
+        color: c.$color-foreground;
+      }
     }
   }
 
