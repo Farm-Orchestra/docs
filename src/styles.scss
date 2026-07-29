@@ -189,18 +189,23 @@ input {
     margin: 0.9rem 0;
     border: 1px solid var(--border);
     background: var(--callout-background);
-    padding: 0.8rem;
+    padding: 1.5rem;
 
     .dg-callout-title {
-      margin: 0 0 0.25rem;
+      margin: 0 0 0.35rem 0;
       color: var(--callout);
-      font-weight: 700;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.78rem;
       letter-spacing: 0.44em;
       text-transform: uppercase;
-      font-size: 0.78rem;
     }
 
     .dg-callout-content p {
+      font-family: var(--font-lato);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: var(--leading-155);
       margin: 0;
     }
   }
