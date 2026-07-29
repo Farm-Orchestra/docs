@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MainLogo } from './main-logo/main-logo';
 
 @Component({
   selector: 'app-top-nav',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MainLogo],
   templateUrl: './top-nav.component.html',
   styleUrl: './top-nav.component.scss',
 })

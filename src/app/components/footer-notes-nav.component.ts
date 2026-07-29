@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { NoteRecord } from '../types/garden.types';
+import { MainLogo } from './main-logo/main-logo';
 
 type FooterGroup = {
   key: string;
@@ -12,13 +13,14 @@ type FooterGroup = {
 @Component({
   selector: 'app-footer-notes-nav',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MainLogo],
   templateUrl: './footer-notes-nav.component.html',
   styleUrl: './footer-notes-nav.component.scss',
 })
 export class FooterNotesNavComponent implements OnChanges {
   @Input() notes: NoteRecord[] = [];
   @Output() openNote = new EventEmitter<string>();
+  @Output() navigate = new EventEmitter<{ notebook?: string }>();
 
   columns: FooterGroup[][] = [[], [], [], []];
 

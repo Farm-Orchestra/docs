@@ -1,5 +1,5 @@
  <nav class="topnav">
-      <button class="brand" type="button" (click)="navigate.emit({})">Farm Orchestra</button>
+      <app-main-logo variant="default" [clickable]="true" (navigate)="navigate.emit({})"></app-main-logo>
       <button
         type="button"
         class="nav-link"
