@@ -25,6 +25,7 @@
   --text-column-max-width: 800px;
   --body-2: 18px;
   --leading-155: 1.55;
+  --prose-line-height: 1.42;
   --weight-text-regular: 400;
   --background-dot-spacing: 133px;
   --background-dot-size: 1px;
@@ -78,7 +79,7 @@ input {
   font-feature-settings: 'pnum' on, 'lnum' on, 'liga' on;
   font-size: var(--body-2);
   font-weight: var(--weight-text-regular);
-  line-height: var(--leading-155);
+  line-height: var(--prose-line-height);
   letter-spacing: 0;
 
   h1,
@@ -113,7 +114,12 @@ input {
     margin-top: 0;
     margin-bottom: 0;
     font-family: var(--font-serif);
-    line-height: var(--leading-155);
+    font-weight: 300;
+    line-height: var(--prose-line-height);
+  }
+
+  p strong {
+    font-weight: 600;
   }
 
   p {
@@ -206,6 +212,6 @@ input {
   }
 
   .dg-paragraph-break {
-    height: 1rem;
+    height: 1.3rem;
   }
 }
