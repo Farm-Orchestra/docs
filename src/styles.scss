@@ -10,9 +10,9 @@
   --card: #d3d6d6;
   --graph: #efefef;
   --quote: #4d4d4d;
-  --quote-background: #eeeeee;
+  --quote-background: #dcdddd;
   --callout: #585f62;
-  --callout-background: #d0d6d7;
+  --callout-background: #d9dedf;
   --obsidian-link: #b462ff;
   --link: #3199f3;
   --border: #CDD5D6;
@@ -163,11 +163,16 @@ input {
 
   .dg-quote {
     margin: 0.8rem 1.6rem;
-    padding: 0.55rem 0.85rem;
+    padding: 0.55rem 2.22rem;
     border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
     color: var(--quote);
-    background: var(--quote-background);
     font-style: italic;
+    font-family: var(--font-lato);
+
+    p {
+      font-weight: 400;
+      line-height: 1.70;
+    }
   }
 
   .dg-code-block {
