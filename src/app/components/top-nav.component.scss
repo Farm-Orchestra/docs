@@ -1,3 +1,5 @@
+@use '../styles/utils/colors' as c;
+
 .topnav {
   display: flex;
   align-items: center;
@@ -20,11 +22,11 @@ button {
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   white-space: nowrap;
+  color: c.$color-top-link;
 
   &:hover,
   &.active {
-    background: var(--muted);
-    color: var(--accent);
+    color: c.$color-top-link-active;
   }
 }
 
