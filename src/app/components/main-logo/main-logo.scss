@@ -11,13 +11,13 @@
 .logo {
   @include logo-default;
 
-  color: c.$color-muted-foreground;
+  color: c.$color-foreground;
   margin-left: 1.2em;
   margin-right: 1.5em;
   cursor: pointer;
 
   &:hover {
-    color: c.$color-foreground;
+    color: c.$color-muted-foreground;
     background: none;
   }
 }
