@@ -6,13 +6,14 @@
   --background-dot: #989ea0;
   --foreground: #434B4E;
   --muted: #dcdfe0;
-  --muted-foreground: #434B4E;
+  --muted-foreground: #6e7476;
   --card: #d3d6d6;
   --graph: #efefef;
   --quote: #4d4d4d;
   --quote-background: #dcdddd;
   --callout: #585f62;
   --callout-background: #d9dedf;
+  --tag-background: #ccd1d2;
   --obsidian-link: #b462ff;
   --link: #3199f3;
   --border: #CDD5D6;
@@ -68,6 +69,29 @@ body {
     }
 }
 
+
+.reset-button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
 button,
 input {
   font: inherit;
@@ -118,6 +142,19 @@ input {
     line-height: var(--prose-line-height);
   }
 
+
+ul {
+  padding-left: 2em;
+}
+
+ol {
+  @extend ul;
+}
+
+li {
+    list-style-type: square;
+}
+
   p strong {
     font-weight: 600;
   }
@@ -132,6 +169,7 @@ input {
 
   a {
    color: var(--obsidian-link);
+   font-weight: 400;
   }
 
   a[href^='http://'],
@@ -224,4 +262,51 @@ input {
   .dg-paragraph-break {
     height: 1.3rem;
   }
+}
+
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  .chips {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    border: 1px solid var(--border);
+    background: var(--muted);
+    color: var(--muted-foreground);
+    padding: 0.3rem 0.45rem;
+    font-size: 0.67rem;
+  }
+
+  .stage {
+    background: color-mix(in srgb, #ffe97b 20%, transparent);
+    color: #ffe97b;
+  }
+
+  .tag {
+    @extend .reset-button;
+    cursor: pointer;
+    border: 0px solid var(--border);
+    
+    font-family: var(--font-mono);
+    color: var(--muted-foreground);
+    font-size: 0.8rem;
+    background-color: var(--tag-background);
+    padding: 0.3em 0.7em;
+    margin-right: 0.4em;
+
+    &:hover {
+        color: var(--muted-foreground);
+        background-color: var(--accent);
+    }
+  }
+
 }

@@ -153,39 +153,6 @@
   color: var(--muted-foreground);
 }
 
-.meta-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-
-  .chips {
-    display: flex;
-    gap: 0.45rem;
-    flex-wrap: wrap;
-  }
-
-  .chip {
-    border: 1px solid var(--border);
-    background: var(--muted);
-    color: var(--muted-foreground);
-    padding: 0.3rem 0.45rem;
-    font-size: 0.67rem;
-  }
-
-  .stage {
-    background: color-mix(in srgb, #ffe97b 20%, transparent);
-    color: #ffe97b;
-  }
-
-  .tag {
-    cursor: pointer;
-    color: #71c7ff;
-  }
-
-}
-
 .muted {
   color: var(--muted-foreground);
 }
