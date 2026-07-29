@@ -19,6 +19,7 @@ import {
   getNotebookSubfolderTree,
   toSearchCandidates,
 } from '../utils/garden-utils';
+import { NoteCard } from '../components/note-card/note-card';
 
 @Component({
   selector: 'app-home-page',
@@ -32,6 +33,7 @@ import {
     NoteContentComponent,
     BacklinksPanelComponent,
     FooterNotesNavComponent,
+    NoteCard
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
@@ -161,11 +163,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
     // notebook/<subfolder>/<subfolder3>/<file>.md
     const subfolder3 = parts.length >= 4 ? parts[2] : undefined;
     return { subfolder, subfolder3 };
-  }
-
-  summary(note: NoteRecord): string {
-    if (note.description?.trim()) return note.description;
-    return getNoteContext(note, 220);
   }
 
   get listingTitle(): string {

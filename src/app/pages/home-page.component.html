@@ -26,18 +26,10 @@
             <ul class="note-grid">
               @for (note of listingNotes; track trackByNote($index, note)) {
                 <li>
-                  <button type="button" class="note-card" (click)="openNote(note.slug)">
-                    <p class="card-path">{{ note.notebook }} / {{ note.relativePath }}</p>
-                    <h2>{{ note.title }}</h2>
-                    <p class="card-summary">{{ summary(note) }}</p>
-                    @if ((note.tags?.length ?? 0) > 0) {
-                      <div class="card-tags">
-                        @for (tag of note.tags ?? []; track tag) {
-                          <span>#{{ tag }}</span>
-                        }
-                      </div>
-                    }
-                  </button>
+                  <app-note-card 
+                    [note]="note" 
+                    (open)="openNote(note.slug)">
+                  </app-note-card>
                 </li>
               }
             </ul>
