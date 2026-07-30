@@ -5,9 +5,16 @@
     align-items: center;
     justify-content: space-between;
 
-    h3 {
+    &__title {
         font-family: var(--font-mono);
         font-weight: 300;
         color: c.$color-foreground;
+    }
+
+    &__notebook {
+        font-family: var(--font-lato);
+        font-weight: 300;
+        font-size: 1.1rem;
+        text-transform:capitalize;
     }
 }
