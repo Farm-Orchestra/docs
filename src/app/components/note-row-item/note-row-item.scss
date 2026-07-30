@@ -9,18 +9,29 @@
 .note-row {
     display:flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:flex-start;
+    gap: 2em;
+    opacity: 80%;
 
-    &__title {
-        font-family: var(--font-mono);
-        font-weight: 300;
-        color: c.$color-foreground;
+    &:hover {
+        cursor: pointer;
+        background: c.$color-background;
+        opacity: 100%;
     }
 
     &__notebook {
         @include rowTextFont;
 
         text-transform:capitalize;
+        width: 8em;
+    }
+
+    &__title {
+        font-family: var(--font-mono);
+        font-weight: 300;
+        font-size: 1.1rem;
+        color: c.$color-foreground;
+        
     }
 
     &__description {
