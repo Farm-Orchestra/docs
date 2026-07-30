@@ -20,6 +20,7 @@ import {
   toSearchCandidates,
 } from '../utils/garden-utils';
 import { NoteCard } from '../components/note-card/note-card';
+import { NoteRowItem } from '../components/note-row-item/note-row-item';
 
 @Component({
   selector: 'app-home-page',
@@ -33,7 +34,8 @@ import { NoteCard } from '../components/note-card/note-card';
     NoteContentComponent,
     BacklinksPanelComponent,
     FooterNotesNavComponent,
-    NoteCard
+    NoteCard,
+    NoteRowItem
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',

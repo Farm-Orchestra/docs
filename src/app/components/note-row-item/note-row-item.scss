@@ -1,0 +1,13 @@
+@use '../../styles/utils/colors' as c;
+
+.note-row {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+        font-family: var(--font-mono);
+        font-weight: 300;
+        color: c.$color-foreground;
+    }
+}
