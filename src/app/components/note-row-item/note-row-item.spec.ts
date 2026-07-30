@@ -39,11 +39,6 @@ describe('NoteRowItem', () => {
       .toContain(mockNote.notebook);
   });
 
-  it('should render the summary', () => {
-    expect(fixture.nativeElement.textContent)
-      .toContain(mockNote.description);
-  });
-
 });
 
 

@@ -6,37 +6,68 @@
     font-size: 1.1rem;
 }
 
+@mixin hideExtraItems {
+    display:none;
+
+    @media (min-width: 860px) {
+        width: 100%;
+        display:none;
+    }
+
+    @media (min-width: 1200px) {
+        width: 100%;
+        display:block;
+    }
+}
+
+@mixin resetMargin {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .note-row {
     display:flex;
     align-items: center;
     justify-content:flex-start;
     gap: 2em;
-    opacity: 80%;
+    opacity: 70%;
     background: transparent;
+    padding: 0.8em 0 0.8em 0.2em;
+    border-bottom: 2px solid  c.$color-border;
 
     &:hover {
         cursor: pointer;
-        background: c.$color-background;
         opacity: 100%;
+        background: c.$color-callout-background;
+        border-bottom: 2px solid c.$color-accent;
     }
 
     &__notebook {
         @include rowTextFont;
+        @include hideExtraItems;
+        @include resetMargin;
 
         text-transform:capitalize;
-        width: 8em;
+        width: 10em;
         text-align: left;
     }
 
     &__title {
+        @include resetMargin;
+
         font-family: var(--font-mono);
         font-weight: 300;
         font-size: 1.1rem;
         color: c.$color-foreground;
-        
+        width: 42em;
+        text-align: left;
     }
 
     &__description {
         @include rowTextFont;
+        @include hideExtraItems;
+        @include resetMargin;
+
+        text-align: left;
     }
 }

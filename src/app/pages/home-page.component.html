@@ -23,19 +23,29 @@
           @if (listingNotes.length === 0) {
             <div class="empty-box">No notes found for this section.</div>
           } @else {
+
             <ul class="note-grid">
-              @for (note of listingNotes; track trackByNote($index, note)) {
+              @for (note of featuredNotes; track trackByNote($index, note)) {
                 <li>
-                  <app-note-card 
-                    [note]="note" 
+                  <app-note-card
+                    [note]="note"
                     (open)="openNote(note.slug)">
                   </app-note-card>
                 </li>
               }
             </ul>
-          }
 
-          <app-note-row-item [note]="listingNotes[0]" (open)="openNote(listingNotes[0].slug)"></app-note-row-item>
+            @if (remainingNotes.length > 0) {
+              <h2 class="notes-row-title">Notes:</h2>
+
+              @for (note of remainingNotes; track note.id) {
+                <app-note-row-item
+                  [note]="note"
+                  (open)="openNote(note.slug)">
+                </app-note-row-item>
+              }
+            }
+          }
         </section>
       } @else {
         <article class="prose note-shell">
