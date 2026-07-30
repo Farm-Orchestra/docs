@@ -1,5 +1,11 @@
 @use '../../styles/utils/colors' as c;
 
+@mixin rowTextFont {
+    font-family: var(--font-lato);
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
 .note-row {
     display:flex;
     align-items: center;
@@ -12,9 +18,12 @@
     }
 
     &__notebook {
-        font-family: var(--font-lato);
-        font-weight: 300;
-        font-size: 1.1rem;
+        @include rowTextFont;
+
         text-transform:capitalize;
+    }
+
+    &__description {
+        @include rowTextFont;
     }
 }
