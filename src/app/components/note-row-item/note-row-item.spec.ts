@@ -43,5 +43,7 @@ describe('NoteRowItem', () => {
     expect(fixture.nativeElement.textContent)
       .toContain(mockNote.description);
   });
+
 });
+
 

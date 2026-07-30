@@ -12,6 +12,7 @@
     justify-content:flex-start;
     gap: 2em;
     opacity: 80%;
+    background: transparent;
 
     &:hover {
         cursor: pointer;
@@ -24,6 +25,7 @@
 
         text-transform:capitalize;
         width: 8em;
+        text-align: left;
     }
 
     &__title {

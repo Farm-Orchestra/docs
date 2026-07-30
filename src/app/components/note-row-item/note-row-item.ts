@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NoteRecord } from '../../types/garden.types';
 
 @Component({
@@ -10,4 +10,5 @@ import { NoteRecord } from '../../types/garden.types';
 export class NoteRowItem {
 
    @Input({ required: true }) note!: NoteRecord;
+   @Output() open = new EventEmitter<void>();
 }

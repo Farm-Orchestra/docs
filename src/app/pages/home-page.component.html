@@ -35,7 +35,7 @@
             </ul>
           }
 
-          <app-note-row-item [note]="listingNotes[0]"></app-note-row-item>
+          <app-note-row-item [note]="listingNotes[0]" (open)="openNote(listingNotes[0].slug)"></app-note-row-item>
         </section>
       } @else {
         <article class="prose note-shell">
