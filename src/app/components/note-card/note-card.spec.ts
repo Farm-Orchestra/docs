@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NoteCard } from './note-card';
+import { createMockNote } from '../../utils/testing-mocks';
+import { NoteRecord } from '../../types/garden.types';
+
+const mockNote: NoteRecord = createMockNote({
+    title: 'Signals'
+});
 
 describe('NoteCard', () => {
   let component: NoteCard;
@@ -13,6 +19,8 @@ describe('NoteCard', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(NoteCard);
+    fixture.componentRef.setInput('note', mockNote);
+    
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

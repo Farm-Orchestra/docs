@@ -139,6 +139,13 @@ li {
     list-style-type: square;
 }
 
+hr {
+    height: 1px;
+    border-width: 1px 0px 0px;
+    border-style: solid none none;
+}
+
+
   p strong {
     font-weight: 600;
   }

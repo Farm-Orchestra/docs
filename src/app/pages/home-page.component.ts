@@ -20,6 +20,8 @@ import {
   toSearchCandidates,
 } from '../utils/garden-utils';
 import { NoteCard } from '../components/note-card/note-card';
+import { NoteRowItem } from '../components/note-row-item/note-row-item';
+import { FEATURED_NOTES_MAX } from '../utils/branding.constants';
 
 @Component({
   selector: 'app-home-page',
@@ -33,7 +35,8 @@ import { NoteCard } from '../components/note-card/note-card';
     NoteContentComponent,
     BacklinksPanelComponent,
     FooterNotesNavComponent,
-    NoteCard
+    NoteCard,
+    NoteRowItem
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
@@ -288,5 +291,13 @@ export class HomePageComponent implements OnInit, OnDestroy {
         from: next.from || null,
       },
     });
+  }
+
+  get featuredNotes(): NoteRecord[] {
+    return this.listingNotes.slice(0, FEATURED_NOTES_MAX);
+  }
+
+  get remainingNotes(): NoteRecord[] {
+    return this.listingNotes.slice(FEATURED_NOTES_MAX);
   }
 }
