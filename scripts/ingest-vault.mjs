@@ -14,6 +14,14 @@ if (!fs.existsSync(resolvedVault)) {
   process.exit(1);
 }
 
+const DEBUG = false;
+
+function log(message) {
+  if (DEBUG) {
+    console.log(message);
+  }
+}
+
 const projectRoot = path.resolve(process.cwd());
 const notesOutDir = path.join(projectRoot, "content", "notes");
 const indexOutPath = path.join(projectRoot, "content", "index.json");
@@ -47,6 +55,8 @@ const pathToSlug = new Map();
 const SKIP_DIRS = new Set([".obsidian", ".trash", ".git"]);
 /** folder name to hold all of the assets */
 const ASSETS_FOLDER_NAME = "assets";
+/** path to public/generated folder */
+const GENERATED_FOLDER = "public/generated";
 
 function slugify(input) {
   return input
@@ -80,50 +90,45 @@ function skipEntry(entry) {
 }
 
 function mirrorVaultAssets(dir, relBase = "") {
-  console.log("STEP 1 :: mirrorVaultAssets - LOOKING FOR ASSETS");
+  log("STEP 1 :: mirrorVaultAssets - LOOKING FOR ASSETS");
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
   for(const entry of entries) {
-    console.log("Iterating through entries for assets of entry = " + entry.name);
+    log("Iterating through entries for assets of entry = " + entry.name);
     if(skipEntry(entry)) {
-      console.log("---Skipping entry!---")
+      log("---Skipping entry!---")
       continue;
     }
 
-    const fullPath = path.join(dir, entry.name);
-    const relative = relBase ? path.join(relBase, entry.name) : entry.name;
+    const absolutePath = path.join(dir, entry.name);
+    const relativePath = relBase ? path.join(relBase, entry.name) : entry.name;
 
     if (entry.isDirectory()) {
+      if(entry.name.toLowerCase() === ASSETS_FOLDER_NAME) {
+        log("FOUND ONE ASSETS DIRECTORY");
 
-      if(entry.name.toLowerCase() == ASSETS_FOLDER_NAME) {
-        console.log("FOUND ONE ASSETS DIRECTORY");
-
-        const assets = fs.readdirSync(fullPath, { withFileTypes: true });
-
-        for(const asset of assets) {
-          if(asset.isFile()) {
-            const source = path.join(fullPath, asset.name);
-            const relativeAssetPath = relative ? path.join(relative, asset.name) : asset.name;
-            const destination = path.join(
-              "public/generated",
-              asset.name
-            );
-            console.log("Hey! found an asset with source path: " + source);
-
-            fs.copyFileSync(source, destination);
-          }
-        }
+        copyAssetsDirectory(absolutePath, relativePath);
         continue;
       } 
 
-      mirrorVaultAssets(fullPath, relative);
+      mirrorVaultAssets(absolutePath, relativePath);
       continue;
     }
-    
   }
-
 }
 
+function copyAssetsDirectory(absolutePath, relativePath) {
+  const assets = fs.readdirSync(absolutePath, { withFileTypes: true });
+
+  const destinationDir = path.join(GENERATED_FOLDER, relativePath);
+  // Mirror assets folder structure inside public/generated before copying
+  fs.mkdirSync(destinationDir, {recursive: true});
+
+  // copy all assets inside assets dir
+  fs.cpSync(absolutePath, destinationDir, {
+      recursive: true
+  });
+}
 
 function findMarkdownFiles(dir, relBase = "") {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
