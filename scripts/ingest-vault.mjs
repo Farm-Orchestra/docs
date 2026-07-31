@@ -45,6 +45,8 @@ const titleToSlug = new Map();
 const pathToSlug = new Map();
 
 const SKIP_DIRS = new Set([".obsidian", ".trash", ".git"]);
+/** folder name to hold all of the assets */
+const ASSETS_FOLDER_NAME = "assets";
 
 function slugify(input) {
   return input
@@ -59,6 +61,69 @@ function slugify(input) {
 function sanitizeSegment(input) {
   return input.replace(/[^a-zA-Z0-9 ._-]/g, "").trim();
 }
+
+function skipEntry(entry) {
+  if (entry.name.startsWith(".")) {
+      if (!SKIP_DIRS.has(entry.name)) {
+        return true;
+      }
+      if (SKIP_DIRS.has(entry.name)) {
+        return true;
+      }
+  }
+
+  if (SKIP_DIRS.has(entry.name)) {
+    return true;
+  }
+
+  return false;
+}
+
+function mirrorVaultAssets(dir, relBase = "") {
+  console.log("STEP 1 :: mirrorVaultAssets - LOOKING FOR ASSETS");
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  for(const entry of entries) {
+    console.log("Iterating through entries for assets of entry = " + entry.name);
+    if(skipEntry(entry)) {
+      console.log("---Skipping entry!---")
+      continue;
+    }
+
+    const fullPath = path.join(dir, entry.name);
+    const relative = relBase ? path.join(relBase, entry.name) : entry.name;
+
+    if (entry.isDirectory()) {
+
+      if(entry.name.toLowerCase() == ASSETS_FOLDER_NAME) {
+        console.log("FOUND ONE ASSETS DIRECTORY");
+
+        const assets = fs.readdirSync(fullPath, { withFileTypes: true });
+
+        for(const asset of assets) {
+          if(asset.isFile()) {
+            const source = path.join(fullPath, asset.name);
+            const relativeAssetPath = relative ? path.join(relative, asset.name) : asset.name;
+            const destination = path.join(
+              "public/generated",
+              asset.name
+            );
+            console.log("Hey! found an asset with source path: " + source);
+
+            fs.copyFileSync(source, destination);
+          }
+        }
+        continue;
+      } 
+
+      mirrorVaultAssets(fullPath, relative);
+      continue;
+    }
+    
+  }
+
+}
+
 
 function findMarkdownFiles(dir, relBase = "") {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -82,6 +147,13 @@ function findMarkdownFiles(dir, relBase = "") {
     const relative = relBase ? path.join(relBase, entry.name) : entry.name;
 
     if (entry.isDirectory()) {
+
+      /* if(entry.name.toLowerCase() == ASSETS_FOLDER_NAME) {
+        console.log("FOUND ONE ASSETS DIRECTORY");
+        mirrorAssets(fullPath, relative);
+        continue;
+      } */
+
       files.push(...findMarkdownFiles(fullPath, relative));
       continue;
     }
@@ -93,6 +165,8 @@ function findMarkdownFiles(dir, relBase = "") {
 
   return files;
 }
+
+
 
 function parseFrontmatter(markdown) {
   if (!markdown.startsWith("---\n") && !markdown.startsWith("---\r\n")) {
@@ -562,6 +636,10 @@ function expandedContext(markdown, startIndex) {
   return clipAround(cleanContextText(joined), Math.floor(joined.length / 2), 560);
 }
 
+// Step 1
+mirrorVaultAssets(resolvedVault);
+
+// Step 2
 const markdownFiles = findMarkdownFiles(resolvedVault);
 
 for (const file of markdownFiles) {
