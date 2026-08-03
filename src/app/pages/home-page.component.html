@@ -75,7 +75,9 @@
             </div>
           }
 
-          <img [src]="selected.coverImage" class="note-cover">
+          @if (selected.coverImage) {
+            <img [src]="selected.coverImage" class="note-cover">
+          }
 
           <app-note-content [html]="selected.htmlContent" [previews]="notePreviews" (openNote)="openNote($event, 'content')"></app-note-content>
           <app-backlinks-panel [backlinks]="selected.backlinks" (openNote)="openNote($event, 'backlink')"></app-backlinks-panel>

@@ -454,6 +454,18 @@ function markdownToHtml(markdown, fromRelativePath) {
       continue;
     }
 
+    if(trimmed.startsWith("![[")) {
+      if (inList) {
+        html.push("</ul>");
+        inList = false;
+      }
+      const imgLinkWithoutBrackets = removeSquareBrackets(trimmed.slice(1));
+      const segments = fromRelativePath.split("/").map(sanitizeSegment).filter(Boolean);
+
+      html.push(`<img class="note-attachment" src="${parseCoverProperty(imgLinkWithoutBrackets, segments)}">`);
+      continue;
+    }
+
     if (trimmed.startsWith(">")) {
       if (inList) {
         html.push("</ul>");
@@ -691,14 +703,18 @@ for (const file of markdownFiles) {
   pathToSlug.set(posixRelative.toLowerCase().replace(/\.md$/i, ""), slug);
 }
 
+function removeSquareBrackets(str) {
+  return str
+    .replace('[[', '')
+    .replace(']]', '');
+}
+
 function parseCoverProperty(coverPropertyValue, segments) {
   if (typeof coverPropertyValue !== "string" || coverPropertyValue.trim() === "") {
     return undefined; 
   }
 
-  const coverFileName = coverPropertyValue
-    .replace('[[', '')
-    .replace(']]', '');
+  const coverFileName = removeSquareBrackets(coverPropertyValue);
 
   const relativeDirectory = segments
     .slice(0, -1) // Remove file name 
