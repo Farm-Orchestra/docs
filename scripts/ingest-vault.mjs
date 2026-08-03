@@ -55,8 +55,12 @@ const pathToSlug = new Map();
 const SKIP_DIRS = new Set([".obsidian", ".trash", ".git"]);
 /** folder name to hold all of the assets */
 const ASSETS_FOLDER_NAME = "assets";
+/** path to generated folder */
+const GENERATED_FOLDER = "generated";
 /** path to public/generated folder */
-const GENERATED_FOLDER = "public/generated";
+const PUBLIC_GENERATED_FOLDER = "public/generated";
+/** slash character */
+const SLASH = "/";
 
 function slugify(input) {
   return input
@@ -120,7 +124,7 @@ function mirrorVaultAssets(dir, relBase = "") {
 function copyAssetsDirectory(absolutePath, relativePath) {
   const assets = fs.readdirSync(absolutePath, { withFileTypes: true });
 
-  const destinationDir = path.join(GENERATED_FOLDER, relativePath);
+  const destinationDir = path.join(PUBLIC_GENERATED_FOLDER, relativePath);
   // Mirror assets folder structure inside public/generated before copying
   fs.mkdirSync(destinationDir, {recursive: true});
 
@@ -152,13 +156,6 @@ function findMarkdownFiles(dir, relBase = "") {
     const relative = relBase ? path.join(relBase, entry.name) : entry.name;
 
     if (entry.isDirectory()) {
-
-      /* if(entry.name.toLowerCase() == ASSETS_FOLDER_NAME) {
-        console.log("FOUND ONE ASSETS DIRECTORY");
-        mirrorAssets(fullPath, relative);
-        continue;
-      } */
-
       files.push(...findMarkdownFiles(fullPath, relative));
       continue;
     }
@@ -684,6 +681,7 @@ for (const file of markdownFiles) {
     backlinks: [],
     rawContent: body,
     htmlContent: "",
+    coverImage: parseCoverProperty(frontmatter.cover, segments)
   };
 
   notes.push(note);
@@ -691,6 +689,35 @@ for (const file of markdownFiles) {
   titleToSlug.set(titleFallback.toLowerCase(), slug);
   pathToSlug.set(slug, slug);
   pathToSlug.set(posixRelative.toLowerCase().replace(/\.md$/i, ""), slug);
+}
+
+function parseCoverProperty(coverPropertyValue, segments) {
+  if (typeof coverPropertyValue !== "string" || coverPropertyValue.trim() === "") {
+    return undefined; 
+  }
+
+  const coverFileName = coverPropertyValue
+    .replace('[[', '')
+    .replace(']]', '');
+
+  const relativeDirectory = segments
+    .slice(0, -1) // Remove file name 
+    .join(SLASH); // join the notebookes / category segments
+
+  return path.join(
+    GENERATED_FOLDER,
+    relativeDirectory,
+    ASSETS_FOLDER_NAME,
+    coverFileName,
+  );
+/* 
+  return mirroredAssetFolderRoot.concat( // generated/notebook/sub-category/assets/asset-name.png
+    SLASH, 
+    relativeDirectory, 
+    SLASH, 
+    ASSETS_FOLDER_NAME,
+    SLASH, 
+    coverFileName);  */
 }
 
 for (const note of notes) {

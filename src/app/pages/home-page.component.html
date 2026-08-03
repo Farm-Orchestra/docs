@@ -59,8 +59,6 @@
             }
           </header>
 
-          <app-note-hero-visual [note]="selected"></app-note-hero-visual>
-
           @if (selected.createdAt || (selected.tags?.length ?? 0) > 0 || (selected.stage?.length ?? 0) > 0) {
             <div class="meta-row">
               <div class="chips">
@@ -76,6 +74,8 @@
               </div>
             </div>
           }
+
+          <img [src]="selected.coverImage">
 
           <app-note-content [html]="selected.htmlContent" [previews]="notePreviews" (openNote)="openNote($event, 'content')"></app-note-content>
           <app-backlinks-panel [backlinks]="selected.backlinks" (openNote)="openNote($event, 'backlink')"></app-backlinks-panel>

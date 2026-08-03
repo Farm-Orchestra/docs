@@ -1,7 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+
 import { ContentService } from '../services/content.service';
 import { NoteRecord } from '../types/garden.types';
 import { getNoteContext, getNotesByTag } from '../utils/garden-utils';
@@ -12,44 +20,59 @@ import { getNoteContext, getNotesByTag } from '../utils/garden-utils';
   imports: [CommonModule],
   templateUrl: './tag-page.component.html',
   styleUrl: './tag-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagPageComponent implements OnInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly contentService = inject(ContentService);
   private readonly cdr = inject(ChangeDetectorRef);
-  private readonly sub = new Subscription();
+
+  private readonly subscriptions = new Subscription();
 
   tag = '';
   resolvedTag = '';
   matches: NoteRecord[] = [];
 
   ngOnInit(): void {
-    this.sub.add(
-      this.route.paramMap.subscribe(async (params) => {
-        this.tag = decodeURIComponent(params.get('tag') ?? '');
-        const index = await this.contentService.loadGardenIndex();
-        this.matches = getNotesByTag(index.notes, this.tag);
-        this.resolvedTag =
-          this.matches.flatMap((note) => note.tags ?? []).find((value) => value.toLowerCase() === this.tag.toLowerCase()) ?? this.tag;
-        this.cdr.detectChanges();
+    this.subscriptions.add(
+      this.route.paramMap.subscribe((params) => {
+        this.loadTag(params.get('tag') ?? '');
       }),
     );
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.subscriptions.unsubscribe();
+  }
+
+  private async loadTag(rawTag: string): Promise<void> {
+    this.tag = decodeURIComponent(rawTag);
+
+    const index = await this.contentService.loadGardenIndex();
+
+    this.matches = getNotesByTag(index.notes, this.tag);
+
+    this.resolvedTag =
+      this.matches
+        .flatMap((note) => note.tags ?? [])
+        .find((tag) => tag.toLowerCase() === this.tag.toLowerCase()) ??
+      this.tag;
+
+    this.cdr.markForCheck();
   }
 
   context(note: NoteRecord): string {
     return getNoteContext(note);
   }
 
-  async openNote(slug: string): Promise<void> {
-    await this.router.navigate(['/'], { queryParams: { note: slug } });
+  openNote(slug: string): Promise<boolean> {
+    return this.router.navigate(['/'], {
+      queryParams: { note: slug },
+    });
   }
 
-  async backToGarden(): Promise<void> {
-    await this.router.navigate(['/']);
+  backToGarden(): Promise<boolean> {
+    return this.router.navigate(['/']);
   }
 }
