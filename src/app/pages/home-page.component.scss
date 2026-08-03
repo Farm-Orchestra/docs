@@ -1,5 +1,7 @@
 @use '../styles/utils/colors' as c;
 
+$NOTE_COVER_HEIGHT: 25em;
+
 .screen {
   min-height: 100vh;
 }
@@ -102,6 +104,13 @@
 
 .note-title {
   margin: 0;
+}
+
+.note-cover {
+  width: 100%; 
+  height: $NOTE_COVER_HEIGHT;
+  object-fit:cover;
+  object-position: top;
 }
 
 .note-description {
