@@ -3,7 +3,7 @@
         <img [src]="note.coverImage">
     }
     <h2>{{ note.title }}</h2>
-    <p class="card-summary">{{ summary(note) }}</p>
+    <!-- <p class="card-summary">{{ summary(note) }}</p> -->
     @if ((note.tags?.length ?? 0) > 0) {
         <div class="card-tags">
         @for (tag of note.tags ?? []; track tag) {
@@ -11,4 +11,5 @@
         }
         </div>
     }
+    
 </button>
