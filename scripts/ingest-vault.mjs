@@ -710,14 +710,6 @@ function parseCoverProperty(coverPropertyValue, segments) {
     ASSETS_FOLDER_NAME,
     coverFileName,
   );
-/* 
-  return mirroredAssetFolderRoot.concat( // generated/notebook/sub-category/assets/asset-name.png
-    SLASH, 
-    relativeDirectory, 
-    SLASH, 
-    ASSETS_FOLDER_NAME,
-    SLASH, 
-    coverFileName);  */
 }
 
 for (const note of notes) {
