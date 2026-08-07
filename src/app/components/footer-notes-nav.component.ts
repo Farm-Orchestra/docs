@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { MainLogo } from './main-logo/main-logo';
 import { NoteRecord } from '@vault42/core';
+import { BRAND_NAME } from '../utils/branding.constants';
 
 type FooterGroup = {
   key: string;
@@ -18,6 +19,8 @@ type FooterGroup = {
   styleUrl: './footer-notes-nav.component.scss',
 })
 export class FooterNotesNavComponent implements OnChanges {
+  readonly logoName = BRAND_NAME;
+  
   @Input() notes: NoteRecord[] = [];
   @Output() openNote = new EventEmitter<string>();
   @Output() navigate = new EventEmitter<{ notebook?: string }>();

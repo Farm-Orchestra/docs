@@ -1,4 +1,4 @@
-@use '../../styles/utils/colors' as c;
+@use "@vault42/theme/styles/colors" as c;
 
 @mixin rowTextFont {
     font-family: var(--font-lato);

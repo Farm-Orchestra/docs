@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BRAND_NAME } from '../../utils/branding.constants';
 
 @Component({
   selector: 'app-main-logo',
@@ -8,8 +7,7 @@ import { BRAND_NAME } from '../../utils/branding.constants';
   styleUrl: './main-logo.scss',
 })
 export class MainLogo {
-  readonly logoName = BRAND_NAME;
-
+  @Input({ required: true }) name!: string;
   @Input() clickable = true;
   @Input() variant: 'default' | 'footer' = 'default';
   @Output() navigate = new EventEmitter<{ notebook?: string }>();
