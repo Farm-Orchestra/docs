@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 import { BacklinksPanelComponent } from '../components/backlinks-panel.component';
 import { FooterNotesNavComponent } from '../components/footer-notes-nav.component';
 import { NoteContentComponent } from '../components/note-content.component';
-import { NoteHeroVisualComponent } from '../components/note-hero-visual.component';
 import { SearchBarComponent } from '../components/search-bar.component';
 import { SubfolderNavComponent } from '../components/subfolder-nav.component';
 import { TopNavComponent } from '../components/top-nav.component';
@@ -31,7 +30,6 @@ import { FEATURED_NOTES_MAX } from '../utils/branding.constants';
     TopNavComponent,
     SubfolderNavComponent,
     SearchBarComponent,
-    NoteHeroVisualComponent,
     NoteContentComponent,
     BacklinksPanelComponent,
     FooterNotesNavComponent,
@@ -135,6 +133,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
     const note = this.index.notes.find((entry) => entry.slug === slug);
     const targetNotebook = note?.notebook ?? this.notebook;
     const scope = this.deriveScopeFromNote(note);
+
+    console.log("Current note has note coverImage value: " + note?.coverImage);
 
     await this.navigateWith({
       note: slug,

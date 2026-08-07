@@ -1,11 +1,12 @@
 ---
-title: "MQTT"
+title: MQTT
 description: Default Description
 number:
 timestamp: 2025-11-25T01:35:00
 icon: File
 tags:
   - farm-orchestra
+cover: "[[mqtt.png]]"
 ---
 MQTT is one of the most 
 widely used communication protocols for IoT.

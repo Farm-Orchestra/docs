@@ -50,17 +50,6 @@ export class NoteContentComponent {
 
     const slug = url.searchParams.get('note');
     if (!slug) return;
-
-    const preview = this.previews[slug];
-    if (!preview?.coverImage) return;
-    const src = `${preview.coverImage}${preview.coverUpdatedAt ? `?v=${encodeURIComponent(preview.coverUpdatedAt)}` : ''}`;
-
-    this.previewState = {
-      visible: true,
-      src,
-      x: Math.min(window.innerWidth - 212, event.clientX + 14),
-      y: Math.min(window.innerHeight - 144, event.clientY + 14),
-    };
   }
 
   hidePreview(): void {
