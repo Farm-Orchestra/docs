@@ -4,15 +4,15 @@
   display: flex;
   justify-content: center;
   gap: 0.4rem;
-  border-bottom: 1px solid c.$color-border;
+  border-bottom: 1px solid var(--vault42-border);
   padding: 0.3rem 0.6rem;
-  background: c.$color-callout-background;
+  background: var(--vault42-callout-background);
 
   button {
     border: 0;
     cursor: pointer;
     background: transparent;
-    color: c.$color-muted-foreground;
+    color: var(--vault42-muted-foreground);
     font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 0.07em;
@@ -20,8 +20,8 @@
     
     &.active,
     &:hover {
-      color: c.$color-muted-foreground;
-      background-color: c.$color-accent;
+      color: var(--vault42-muted-foreground);
+      background-color: var(--vault42-accent);
     }
   }
 }

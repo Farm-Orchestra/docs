@@ -23,6 +23,7 @@
     "tslib": "^2.3.0",
     "zone.js": "^0.16.1",
     "@vault42/core": "file:../../vault42/dist/core",
+    "@vault42/ui": "file:../../vault42/dist/ui",
     "@vault42/theme": "file:../../vault42/dist/theme"
   },
   "devDependencies": {

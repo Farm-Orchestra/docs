@@ -21,7 +21,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  border-color: c.$color-border;
+  border-color: var(--vault42-border);
 }
 
 html,
@@ -31,8 +31,8 @@ body {
 }
 
 body {
-  background: radial-gradient(c.$color-background-gradient, c.$color-background);
-  color: c.$color-foreground;
+  background: radial-gradient(var(--vault42-background-gradient), var(--vault42-background));
+  color: var(--vault42-foreground);
   box-sizing: border-box;
   font-family: var(--font-lato);
   font-weight: 300;
@@ -45,7 +45,7 @@ body {
   inset: 0;
   height: 100%;
   width: 100%;
-  background-image: radial-gradient(c.$color-background-dot var(--background-dot-size), c.$color-background var(--background-dot-size));
+  background-image: radial-gradient(var(--vault42-background-dot) var(--background-dot-size), var(--vault42-background) var(--background-dot-size));
   background-size: var(--background-dot-spacing) var(--background-dot-spacing);
   background-attachment: fixed;
 
@@ -159,26 +159,26 @@ hr {
   }
 
   a {
-   color: c.$color-obsidian-link;
+   color: var(--vault42-obsidian-link);
    font-weight: 400;
   }
 
   a[href^='http://'],
   a[href^='https://'],
   a[href^='mailto:'] {
-    color: c.$color-link;
+    color: var(--vault42-link);
   }
 
   a[href^='http://']:hover,
   a[href^='https://']:hover,
   a[href^='mailto:']:hover {
-    color: c.$color-background;
-    background: c.$color-link;
+    color: var(--vault42-background);
+    background: var(--vault42-link);
   }
 
   a:hover {
-    color: c.$color-background;
-    background: c.$color-obsidian-link;
+    color: var(--vault42-background);
+    background: var(--vault42-obsidian-link);
   }
 
   code {
@@ -193,8 +193,8 @@ hr {
   .dg-quote {
     margin: 0.8rem 1.6rem;
     padding: 0.55rem 2.22rem;
-    border-left: 2px solid color-mix(in srgb, c.$color-accent 40%, transparent);
-    color: c.$color-quote;
+    border-left: 2px solid color-mix(in srgb, var(--vault42-accent) 40%, transparent);
+    color: var(--vault42-quote);
     font-style: italic;
     font-family: var(--font-lato);
 
@@ -206,7 +206,7 @@ hr {
 
   .dg-code-block {
     margin: 0.9rem 0;
-    border: 1px solid c.$color-border;
+    border: 1px solid var(--vault42-border);
     background: #f4eee1;
     padding: 0.95rem;
     overflow-x: auto;
@@ -214,20 +214,20 @@ hr {
     code {
       background: transparent;
       padding: 0;
-      color: c.$color-foreground;
+      color: var(--vault42-foreground);
       white-space: pre;
     }
   }
 
   .dg-callout {
     margin: 0.9rem 0;
-    border: 1px solid c.$color-border;
-    background: c.$color-callout-background;
+    border: 1px solid var(--vault42-border);
+    background: var(--vault42-callout-background);
     padding: 1.5rem;
 
     .dg-callout-title {
       margin: 0 0 0.35rem 0;
-      color: c.$color-callout;
+      color: var(--vault42-callout);
       font-family: var(--font-mono);
       font-weight: 500;
       font-size: 0.78rem;
@@ -246,7 +246,7 @@ hr {
 
   .dg-divider {
     border: 0;
-    border-top: 1px solid c.$color-border;
+    border-top: 1px solid var(--vault42-border);
     margin: 1.2rem 0;
   }
 
@@ -270,9 +270,9 @@ hr {
   }
 
   .chip {
-    border: 1px solid c.$color-border;
+    border: 1px solid var(--vault42-border);
     background: var(--muted);
-    color: c.$color-muted-foreground;
+    color: var(--vault42-muted-foreground);
     padding: 0.3rem 0.45rem;
     font-size: 0.67rem;
   }
@@ -285,18 +285,18 @@ hr {
   .tag {
     @extend .reset-button;
     cursor: pointer;
-    border: 0px solid c.$color-border;
+    border: 0px solid var(--vault42-border);
     
     font-family: var(--font-mono);
-    color: c.$color-muted-foreground;
+    color: var(--vault42-muted-foreground);
     font-size: 0.8rem;
-    background-color: c.$color-tag-background;
+    background-color: var(--vault42-tag-background);
     padding: 0.3em 0.7em;
     margin-right: 0.4em;
 
     &:hover {
-        color: c.$color-muted-foreground;
-        background-color: c.$color-accent;
+        color: var(--vault42-muted-foreground);
+        background-color: var(--vault42-accent);
     }
   }
 

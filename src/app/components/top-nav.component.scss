@@ -5,14 +5,14 @@
   align-items: center;
   gap: 0.6rem;
   overflow-x: auto;
-  border-bottom: 1px solid c.$color-border;
+  border-bottom: 1px solid var(--vault42-border);
   padding: 1rem 1.5rem;
 }
 
 button {
   border: 0;
   background: transparent;
-  color: c.$color-foreground;
+  color: var(--vault42-foreground);
   cursor: pointer;
 }
 
@@ -22,11 +22,11 @@ button {
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   white-space: nowrap;
-  color: c.$color-top-link;
+  color: var(--vault42-top-link);
 
   &:hover,
   &.active {
-    color: c.$color-top-link-active;
+    color: var(--vault42-top-link-active);
   }
 }
 

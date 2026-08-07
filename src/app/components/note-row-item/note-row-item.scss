@@ -33,13 +33,13 @@
     opacity: 70%;
     background: transparent;
     padding: 0.8em 0 0.8em 0.2em;
-    border-bottom: 2px solid  c.$color-border;
+    border-bottom: 2px solid  var(--vault42-border);
 
     &:hover {
         cursor: pointer;
         opacity: 100%;
-        background: c.$color-callout-background;
-        border-bottom: 2px solid c.$color-accent;
+        background: var(--vault42-callout-background);
+        border-bottom: 2px solid var(--vault42-accent);
     }
 
     &__notebook {
@@ -58,7 +58,7 @@
         font-family: var(--font-mono);
         font-weight: 300;
         font-size: 1.1rem;
-        color: c.$color-foreground;
+        color: var(--vault42-foreground);
         width: 42em;
         text-align: left;
     }

@@ -1,7 +1,7 @@
 @use "@vault42/theme/styles/colors" as c;
 
 .panel {
-  background: c.$color-card;
+  background: var(--vault42-card);
   padding: 1rem;
   margin-top: 2em;
 
@@ -19,7 +19,7 @@
   }
 
   li {
-    border: 1px solid c.$color-border;
+    border: 1px solid var(--vault42-border);
     background: var(--muted);
     padding: 0.5rem;
     list-style: none;
@@ -27,7 +27,7 @@
     button {
       border: 0;
       background: none;
-      color: c.$color-foreground;
+      color: var(--vault42-foreground);
       text-decoration: underline;
       padding: 0;
       cursor: pointer;
@@ -36,23 +36,23 @@
       font-weight: 700;
 
       &:hover {
-        color: c.$color-muted-foreground;
+        color: var(--vault42-muted-foreground);
       }
     }
 
     p {
       margin: 0.3rem 0 0;
       font-size: 0.9rem;
-      color: c.$color-muted-foreground;
+      color: var(--vault42-muted-foreground);
 
       &:hover {
-        color: c.$color-foreground;
+        color: var(--vault42-foreground);
       }
     }
   }
 
   .muted {
-    color: c.$color-muted-foreground;
+    color: var(--vault42-muted-foreground);
     font-size: 0.8rem;
   }
 }

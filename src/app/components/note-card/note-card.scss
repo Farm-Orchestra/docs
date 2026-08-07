@@ -15,17 +15,17 @@ $IMG_TRANSLATE_Y: 1.4rem;
   width: $CARD_WIDTH;
   height: $CARD_HEIGHT;
   text-align: left;
-  border: $CARD_BORDER_WIDTH solid c.$color-border;
-  background: color-mix(in srgb, c.$color-callout-background 90%, transparent);
+  border: $CARD_BORDER_WIDTH solid var(--vault42-border);
+  background: color-mix(in srgb, var(--vault42-callout-background) 90%, transparent);
   padding: $CARD_PADDING;
   cursor: pointer;
   opacity: 90%;
   transition: border-color 0.14s ease, transform 0.14s ease, background 0.14s ease;
 
   &:hover {
-    border-color: c.$color-accent;
+    border-color: var(--vault42-accent);
     transform: translateY(-2px);
-    background: c.$color-background;
+    background: var(--vault42-background);
     opacity: 100%;
   }
 
@@ -49,7 +49,7 @@ $IMG_TRANSLATE_Y: 1.4rem;
 
   h2 {
     margin: 0.22rem 0 0;
-    color: c.$color-foreground;
+    color: var(--vault42-foreground);
     font-size: 1.5rem;
     font-family: var(--font-mono);
     font-weight: 300;
@@ -60,7 +60,7 @@ $IMG_TRANSLATE_Y: 1.4rem;
 
   .card-path {
     margin: 0;
-    color: c.$color-muted-foreground;
+    color: var(--vault42-muted-foreground);
     font-size: 0.64rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
@@ -69,7 +69,7 @@ $IMG_TRANSLATE_Y: 1.4rem;
 
   .card-summary {
     margin: 0.55rem 0 0;
-    color: c.$color-muted-foreground;
+    color: var(--vault42-muted-foreground);
     font-size: 0.86rem;
     line-height: 1.45;
     z-index: 3;
@@ -84,10 +84,10 @@ $IMG_TRANSLATE_Y: 1.4rem;
     z-index: 3;
 
     span {
-      border: 1px solid c.$color-border;
-      background: c.$color-border;
+      border: 1px solid var(--vault42-border);
+      background: var(--vault42-border);
       padding: 0.16rem 0.34rem;
-      color: c.$color-muted-foreground;
+      color: var(--vault42-muted-foreground);
       border-radius: 2px;
       font-size: 0.66rem;
       z-index: 3;
