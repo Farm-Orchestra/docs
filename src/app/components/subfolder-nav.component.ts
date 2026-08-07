@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SubfolderTreeItem } from '../types/garden.types';
+import { SubfolderTreeItem } from '@vault42/core';
 
 @Component({
   selector: 'app-subfolder-nav',

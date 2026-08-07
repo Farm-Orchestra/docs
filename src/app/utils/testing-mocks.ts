@@ -1,4 +1,5 @@
-import { NoteRecord } from "../types/garden.types";
+import { NoteRecord } from "@vault42/core";
+
 
 export function createMockNote(
   overrides: Partial<NoteRecord> = {}

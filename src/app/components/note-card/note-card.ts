@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NoteRecord } from '../../types/garden.types';
 import { getNoteContext } from '../../utils/garden-utils';
+import { NoteRecord } from '@vault42/core';
 
 @Component({
   selector: 'app-note-card',

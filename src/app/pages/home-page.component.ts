@@ -9,7 +9,6 @@ import { SearchBarComponent } from '../components/search-bar.component';
 import { SubfolderNavComponent } from '../components/subfolder-nav.component';
 import { TopNavComponent } from '../components/top-nav.component';
 import { ContentService } from '../services/content.service';
-import { GardenIndex, NoteRecord, SearchCandidate } from '../types/garden.types';
 import {
   buildNotePreviews,
   filterNotes,
@@ -21,6 +20,7 @@ import {
 import { NoteCard } from '../components/note-card/note-card';
 import { NoteRowItem } from '../components/note-row-item/note-row-item';
 import { FEATURED_NOTES_MAX } from '../utils/branding.constants';
+import { GardenIndex, NoteRecord, SearchCandidate } from '@vault42/core';
 
 @Component({
   selector: 'app-home-page',

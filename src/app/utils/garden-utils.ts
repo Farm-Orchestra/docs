@@ -1,4 +1,5 @@
-import { GardenIndex, NoteRecord, SearchCandidate, SubfolderTreeItem } from '../types/garden.types';
+import { GardenIndex, NoteRecord, SearchCandidate, SubfolderTreeItem } from "@vault42/core";
+
 
 export function filterNotes(
   notes: NoteRecord[],
@@ -61,7 +62,7 @@ export function getNotesByTag(notes: NoteRecord[], tag: string): NoteRecord[] {
   if (!target) return [];
 
   return notes
-    .filter((note) => (note.tags ?? []).some((noteTag) => noteTag.trim().toLowerCase() === target))
+    .filter((note) => (note.tags ?? []).some((noteTag: string) => noteTag.trim().toLowerCase() === target))
     .sort((a, b) => a.title.localeCompare(b.title));
 }
 

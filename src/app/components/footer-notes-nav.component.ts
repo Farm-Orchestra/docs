@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { NoteRecord } from '../types/garden.types';
 import { MainLogo } from './main-logo/main-logo';
+import { NoteRecord } from '@vault42/core';
 
 type FooterGroup = {
   key: string;

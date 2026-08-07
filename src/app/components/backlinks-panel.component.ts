@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BacklinkEntry } from '../types/garden.types';
+import { BacklinkEntry } from '@vault42/core';
 
 @Component({
   selector: 'app-backlinks-panel',

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GardenIndex } from '../types/garden.types';
+import { GardenIndex } from '@vault42/core';
 
 @Injectable({ providedIn: 'root' })
 export class ContentService {

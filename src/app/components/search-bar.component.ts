@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SearchCandidate } from '../types/garden.types';
 import { scoreCandidate } from '../utils/garden-utils';
+import { SearchCandidate } from '@vault42/core';
 
 @Component({
   selector: 'app-search-bar',
