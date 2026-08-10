@@ -1,6 +1,6 @@
 <footer class="site-footer">
       <div class="footer-inner">
-       <v42-main-logo variant="footer" [clickable]="false" (navigate)="navigate.emit({})">{{logoName}}</v42-main-logo>  
+       <v42-main-logo variant="footer" [logoName]="logoName" [clickable]="false" (navigate)="navigate.emit({})"></v42-main-logo> 
 
         <div class="notes-grid">
           @for (column of columns; track $index) {

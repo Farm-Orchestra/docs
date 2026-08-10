@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { BRAND_NAME } from '../utils/branding.constants';
-import { V42Logo } from '@vault42/ui';
 import { NoteRecord } from '@vault42/core'; 
+import { V42Logo } from '@vault42/ui';
 
 type FooterGroup = {
   key: string;
