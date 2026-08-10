@@ -1,5 +1,5 @@
  <nav class="topnav">
-      <app-main-logo variant="default" [name]="logoName" [clickable]="true" (navigate)="navigate.emit({})"></app-main-logo>
+      <v42-main-logo variant="default" [clickable]="true" (navigate)="navigate.emit({})">{{logoName}}</v42-main-logo>  
       <button
         type="button"
         class="nav-link"

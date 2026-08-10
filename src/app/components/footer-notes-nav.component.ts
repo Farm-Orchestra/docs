@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { MainLogo } from './main-logo/main-logo';
-import { NoteRecord } from '@vault42/core';
 import { BRAND_NAME } from '../utils/branding.constants';
+import { V42Logo } from '@vault42/ui';
+import { NoteRecord } from '@vault42/core'; 
 
 type FooterGroup = {
   key: string;
@@ -14,7 +14,7 @@ type FooterGroup = {
 @Component({
   selector: 'app-footer-notes-nav',
   standalone: true,
-  imports: [CommonModule, MainLogo],
+  imports: [CommonModule, V42Logo],
   templateUrl: './footer-notes-nav.component.html',
   styleUrl: './footer-notes-nav.component.scss',
 })
