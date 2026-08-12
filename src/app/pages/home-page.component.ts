@@ -16,7 +16,7 @@ import {
   getNoteContext,
   getNotebookSubfolderTree,
   toSearchCandidates,
-} from '../utils/garden-utils';
+} from '@vault42/core';
 import { NoteCard } from '../components/note-card/note-card';
 import { NoteRowItem } from '../components/note-row-item/note-row-item';
 import { FEATURED_NOTES_MAX } from '../utils/branding.constants';

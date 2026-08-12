@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NoteCard } from './note-card';
 import { createMockNote } from '../../utils/testing-mocks';
-import { NoteRecord } from '../../types/garden.types';
+import { NoteRecord } from '@vault42/core';
 
 const mockNote: NoteRecord = createMockNote({
     title: 'Signals'

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { scoreCandidate } from '../utils/garden-utils';
+import { scoreCandidate } from '@vault42/core';
 import { SearchCandidate } from '@vault42/core';
 
 @Component({

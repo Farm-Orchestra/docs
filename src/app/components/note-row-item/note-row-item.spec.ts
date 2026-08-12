@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoteRowItem } from './note-row-item';
-import { NoteRecord } from '../../types/garden.types';
+import { NoteRecord } from '@vault42/core';
 import { createMockNote } from '../../utils/testing-mocks';
 
 const mockNote: NoteRecord = createMockNote({

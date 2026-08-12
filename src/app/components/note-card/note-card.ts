@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { getNoteContext } from '../../utils/garden-utils';
+import { getNoteContext } from '@vault42/core';
 import { NoteRecord } from '@vault42/core';
 
 @Component({

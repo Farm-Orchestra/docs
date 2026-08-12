@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 
 import { ContentService } from '../services/content.service';
 // import { NoteRecord } from '../types/garden.types';
-import { getNoteContext, getNotesByTag } from '../utils/garden-utils';
+import { getNoteContext, getNotesByTag } from '@vault42/core';
 import { NoteRecord } from '@vault42/core';
 
 @Component({
