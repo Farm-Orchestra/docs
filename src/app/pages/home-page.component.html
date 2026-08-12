@@ -27,10 +27,10 @@
             <ul class="note-grid">
               @for (note of featuredNotes; track trackByNote($index, note)) {
                 <li>
-                  <app-note-card
+                  <v42-note-card
                     [note]="note"
                     (open)="openNote(note.slug)">
-                  </app-note-card>
+                  </v42-note-card>
                 </li>
               }
             </ul>

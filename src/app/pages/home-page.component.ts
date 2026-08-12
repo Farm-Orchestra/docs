@@ -17,10 +17,10 @@ import {
   getNotebookSubfolderTree,
   toSearchCandidates,
 } from '@vault42/core';
-import { NoteCard } from '../components/note-card/note-card';
 import { NoteRowItem } from '../components/note-row-item/note-row-item';
 import { FEATURED_NOTES_MAX } from '../utils/branding.constants';
 import { GardenIndex, NoteRecord, SearchCandidate } from '@vault42/core';
+import { V42NoteCard } from '@vault42/ui';
 
 @Component({
   selector: 'app-home-page',
@@ -33,7 +33,7 @@ import { GardenIndex, NoteRecord, SearchCandidate } from '@vault42/core';
     NoteContentComponent,
     BacklinksPanelComponent,
     FooterNotesNavComponent,
-    NoteCard,
+    V42NoteCard,
     NoteRowItem
   ],
   templateUrl: './home-page.component.html',
