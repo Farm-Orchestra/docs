@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './pages/home-page.component';
-import { TagPageComponent } from './pages/tag-page.component';
+
+import { V42HomeLayoutComponent, V42TagLayoutComponent } from '@vault42/ui';
 
 export const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'tag/:tag', component: TagPageComponent },
+  { path: '', component: V42HomeLayoutComponent },
+  { path: 'tag/:tag', component: V42TagLayoutComponent },
   { path: '**', redirectTo: '' },
 ];
