@@ -4,12 +4,12 @@
   } @else if (error) {
     <div class="status error">{{ error }}</div>
   } @else {
-    <app-top-nav [notebooks]="index.notebooks" [current]="notebook" (navigate)="onNavigateTop($event)">
-      <app-search-bar [defaultQuery]="q ?? ''" [notes]="searchCandidates" (select)="onSearchSelect($event)"></app-search-bar>
-    </app-top-nav>
+    <v42-top-nav [notebooks]="index.notebooks" [brandName]="logoName" [current]="notebook" (navigate)="onNavigateTop($event)">
+      <v42-search-bar [defaultQuery]="q ?? ''" [notes]="searchCandidates" (select)="onSearchSelect($event)"></v42-search-bar>
+    </v42-top-nav>
 
     @if (notebook && notebookSubfolderTree.length > 0) {
-      <app-subfolder-nav [items]="notebookSubfolderTree" [currentSubfolder]="subfolder" (select)="onSubfolderSelect($event)"></app-subfolder-nav>
+      <v42-subfolder-nav [items]="notebookSubfolderTree" [currentSubfolder]="subfolder" (select)="onSubfolderSelect($event)"></v42-subfolder-nav>
     }
 
     <main class="content">
@@ -39,10 +39,10 @@
               <h2 class="notes-row-title">Notes:</h2>
 
               @for (note of remainingNotes; track note.id) {
-                <app-note-row-item
+                <v42-note-row-item
                   [note]="note"
                   (open)="openNote(note.slug)">
-                </app-note-row-item>
+                </v42-note-row-item>
               }
             }
           }
@@ -79,12 +79,12 @@
             <img [src]="selected.coverImage" class="note-cover">
           }
 
-          <app-note-content [html]="selected.htmlContent" [previews]="notePreviews" (openNote)="openNote($event, 'content')"></app-note-content>
-          <app-backlinks-panel [backlinks]="selected.backlinks" (openNote)="openNote($event, 'backlink')"></app-backlinks-panel>
+          <v42-note-content [html]="selected.htmlContent" [previews]="notePreviews" (openNote)="openNote($event, 'content')"></v42-note-content>
+          <v42-backlinks-panel [backlinks]="selected.backlinks" (openNote)="openNote($event, 'backlink')"></v42-backlinks-panel>
         </article>
       }
     </main>
 
-    <app-footer-notes-nav [notes]="index.notes" (openNote)="openNote($event)"></app-footer-notes-nav>
+    <v42-footer-notes-nav [notes]="index.notes" [brandName]="logoName" (openNote)="openNote($event)"></v42-footer-notes-nav>
   }
 </div>
