@@ -2,14 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BacklinksPanelComponent } from '../components/backlinks-panel.component';
-import { FooterNotesNavComponent } from '../components/footer-notes-nav.component';
-import { NoteContentComponent } from '../components/note-content.component';
-import { SearchBarComponent } from '../components/search-bar.component';
-import { SubfolderNavComponent } from '../components/subfolder-nav.component';
-import { TopNavComponent } from '../components/top-nav.component';
 import { ContentService } from '../services/content.service';
-import { GardenIndex, NoteRecord, SearchCandidate } from '../types/garden.types';
+import { BRAND_NAME } from '../utils/branding.constants';
 import {
   buildNotePreviews,
   filterNotes,
@@ -17,24 +11,24 @@ import {
   getNoteContext,
   getNotebookSubfolderTree,
   toSearchCandidates,
-} from '../utils/garden-utils';
-import { NoteCard } from '../components/note-card/note-card';
-import { NoteRowItem } from '../components/note-row-item/note-row-item';
+} from '@vault42/core';
 import { FEATURED_NOTES_MAX } from '../utils/branding.constants';
+import { GardenIndex, NoteRecord, SearchCandidate } from '@vault42/core';
+import { V42BacklinksPanelComponent, V42FooterNotesNavComponent, V42NoteCard, V42NoteContentComponent, V42NoteRowItem, V42SearchBarComponent, V42SubfolderNavComponent, V42TopNavComponent } from '@vault42/ui';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
   imports: [
     CommonModule,
-    TopNavComponent,
-    SubfolderNavComponent,
-    SearchBarComponent,
-    NoteContentComponent,
-    BacklinksPanelComponent,
-    FooterNotesNavComponent,
-    NoteCard,
-    NoteRowItem
+    V42TopNavComponent,
+    V42SubfolderNavComponent,
+    V42SearchBarComponent,
+    V42NoteContentComponent,
+    V42BacklinksPanelComponent,
+    V42FooterNotesNavComponent,
+    V42NoteCard,
+    V42NoteRowItem
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
@@ -45,15 +39,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   private readonly contentService = inject(ContentService);
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly subscription = new Subscription();
-
-  readonly notebookAccentMap: Record<string, string> = {
-    'computer-science': '--computer-science-accent',
-    cybersecurity: '--cybersecurity-accent',
-    farming: '--farming-accent',
-    health: '--health-accent',
-    money: '--money-accent',
-    philosophy: '--philosophy-accent',
-  };
+  readonly logoName = BRAND_NAME;
 
   loading = true;
   error = '';
@@ -85,11 +71,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  get activeAccent(): string {
-    const notebook = (this.notebook ?? this.selected?.notebook ?? '').toLowerCase();
-    return this.notebookAccentMap[notebook] ?? '--default-accent';
   }
 
   formatDate(value?: string): string | null {
@@ -258,8 +239,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.notePreviews = buildNotePreviews(this.index);
     this.searchCandidates = toSearchCandidates(this.index);
     this.notebookSubfolderTree = this.notebook ? getNotebookSubfolderTree(this.index.notes, this.notebook) : [];
-
-    document.documentElement.style.setProperty('--accent', `var(${this.activeAccent})`);
   }
 
   private async navigateWith(patch: {
