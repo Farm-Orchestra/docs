@@ -4,14 +4,14 @@ import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { GardenContentSource, V42_GARDEN_CONFIG } from '@vault42/core';
 import { FarmOrchestraContentSource } from './services/content.service';
-import { BRAND_NAME, FEATURED_NOTES_MAX } from './utils/branding.constants';
+import { VAULT_CONFIG } from './vault-config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     { provide: GardenContentSource, useClass: FarmOrchestraContentSource },
     { provide: V42_GARDEN_CONFIG, useFactory: () => ({
-        brandName: BRAND_NAME, // TODO: improve config file
-        featuredNotesMax: FEATURED_NOTES_MAX,
+        brandName: VAULT_CONFIG.brandName, 
+        featuredNotesMax: VAULT_CONFIG.featuredNotesMax,
       }),
     },
     provideBrowserGlobalErrorListeners(), 
