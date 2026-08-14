@@ -2,7 +2,19 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
+import { GardenContentSource, V42_GARDEN_CONFIG } from '@vault42/core';
+import { FarmOrchestraContentSource } from './services/content.service';
+import { VAULT_CONFIG } from './vault-config';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideBrowserGlobalErrorListeners(), provideRouter(routes), provideHttpClient()],
+  providers: [
+    { provide: GardenContentSource, useClass: FarmOrchestraContentSource },
+    { provide: V42_GARDEN_CONFIG, useFactory: () => ({
+        brandName: VAULT_CONFIG.brandName, 
+        featuredNotesMax: VAULT_CONFIG.featuredNotesMax,
+      }),
+    },
+    provideBrowserGlobalErrorListeners(), 
+    provideRouter(routes), 
+    provideHttpClient()],
 };

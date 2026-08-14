@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { GardenIndex } from '@vault42/core';
+import { GardenContentSource, GardenIndex } from '@vault42/core';
 
-@Injectable({ providedIn: 'root' })
-export class ContentService {
+@Injectable()
+export class FarmOrchestraContentSource extends GardenContentSource {
   private cache: GardenIndex | null = null;
 
-  async loadGardenIndex(): Promise<GardenIndex> {
+  override async loadGardenIndex(): Promise<GardenIndex> {
     if (this.cache) {
       return this.cache;
     }
@@ -63,4 +63,5 @@ export class ContentService {
   clearCache(): void {
     this.cache = null;
   }
+
 }
