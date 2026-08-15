@@ -6,6 +6,7 @@ system: Microgreens Supernova
 tags:
   - microgreens
 icon: Bean
+cover: "[[blackout-4.png]]"
 ---
 For a few days that I have not planted any Microgreens. 
 There has been kind of a "Blackout" phase for a few weeks. 
@@ -19,6 +20,8 @@ Before going back to growing some more seeds, let's break down one of the cooles
 
 In total darkness, microgreens seeds do not produce **clorophylle** (the green pigment). 
 This is totally fine. 
+
+![[hydro 2.png]]
 
 But in this state, they are freaking out. 
 And for this reason, they start the process of **etiolation**.

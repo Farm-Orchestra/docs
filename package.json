@@ -10,7 +10,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "ingest:vault": "node scripts/ingest-vault.mjs"
+    "ingest:vault": "vault42-ingest --config ./vault42.ingest.local.json"
   },
   "dependencies": {
     "@angular/common": "^21.2.0",
@@ -24,7 +24,8 @@
     "zone.js": "^0.16.1",
     "@vault42/core": "file:../../vault42/dist/core",
     "@vault42/theme": "file:../../vault42/dist/theme",
-    "@vault42/ui": "file:../../vault42/dist/ui"
+    "@vault42/ui": "file:../../vault42/dist/ui",
+    "@vault42/ingest": "file:../../vault42/projects/ingest"
   },
   "devDependencies": {
     "@angular/build": "^21.2.1",

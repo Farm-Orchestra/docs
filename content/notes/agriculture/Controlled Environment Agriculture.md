@@ -7,6 +7,7 @@ icon: Bolt
 tags:
   - farm-orchestra
   - agriculture
+cover: "[[controlled.png]]"
 ---
 ## Micro-Universe
 
@@ -17,7 +18,6 @@ using technology, for life to evolve at its maximum potential.
 Inside this micro-universe, we really do not care about outside conditions, 
 whether they are affected by Climate change, global warming, 
 water shortages or natural disasters. 
-
 ## Pregunta
 
 > What exactly is CEA?
