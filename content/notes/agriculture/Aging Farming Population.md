@@ -1,11 +1,12 @@
 ---
-title: "Aging Farming Population"
+title: Aging Farming Population
 description: Default Description
 number:
 timestamp: 2025-11-25T01:35:00
 icon: File
 tags:
   - farm-orchestra
+cover: "[[aging.png]]"
 ---
 Japan's agricultural workforce 
 is **rapidly aging**.

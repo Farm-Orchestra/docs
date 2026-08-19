@@ -7,6 +7,7 @@ icon: File
 tags:
   - programming
   - job-search
+cover: "[[happymoney-docs.png]]"
 ---
 ## Core Concept
 

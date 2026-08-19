@@ -15,4 +15,4 @@ To embody the [[itadakimasu]] from the first step.
 ---
 
 
-
+![[dantian.png]]

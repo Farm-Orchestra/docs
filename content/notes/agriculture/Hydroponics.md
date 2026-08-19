@@ -9,6 +9,7 @@ japanese: 水耕栽培の定義
 number: 4
 icon: Sprout
 description: Growing food through water
+cover: "[[hydro 1.png]]"
 ---
 
 > [!info] Definition

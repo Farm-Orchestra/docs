@@ -7,6 +7,7 @@ icon: Wheat
 tags:
   - farm-orchestra
   - agriculture
+cover: "[[security.png]]"
 ---
 ## Definition
 

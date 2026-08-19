@@ -6,13 +6,11 @@ description: Default Description
 stage:
   - seed
 icon: File
-cover:
+cover: "[[coco.png]]"
 timestamp: 2025-11-25T01:35:00
 tags:
   - idea
 ---
-
-
 Coco coir es básicamente la reutilización de 
 residuos de coco para crear soil. 
 Es biodegradable y perfecto para Microgreens. 
