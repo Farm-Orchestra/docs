@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { GardenContentSource, GardenIndex } from '@vault42/core';
 
 @Injectable()
-export class FarmOrchestraContentSource extends GardenContentSource {
+export class JulzLabContentSource extends GardenContentSource {
   private cache: GardenIndex | null = null;
 
   override async loadGardenIndex(): Promise<GardenIndex> {
